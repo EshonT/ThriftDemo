@@ -60,14 +60,14 @@ public class DemoApplication {
             System.out.println(JSON.toJSONString(result));
 
             Map<String, TestClass> mapTest = client.GetMap();
-
+            System.out.println("mapTest = " + mapTest);
             long t4 = System.currentTimeMillis();
 
             //关闭资源
             transport.close();
             long t5 = System.currentTimeMillis();
 
-            System.out.println("connectThrift:\t" + (t2 - t1) + "\nconnectPLC:\t\t" + (t3 - t2) + "\ngetAndReturn:\t" + (t4 - t3) + "\nclose:\t\t\t" + (t5 - t4));
+            System.out.println("connectThrift:\t" + (t2 - t1) + "\nconnectService:\t\t" + (t3 - t2) + "\ngetAndReturn:\t" + (t4 - t3) + "\nclose:\t\t\t" + (t5 - t4));
 
         } catch (TException e) {
             System.out.println("e.getMessage() = " + e.getMessage() + Arrays.toString(e.getStackTrace()));
