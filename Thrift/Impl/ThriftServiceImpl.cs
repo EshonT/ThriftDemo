@@ -1,22 +1,49 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CSharpDemo.Thrift.Impl
 {
     internal class ThriftServiceImpl : ThriftService.Iface
     {
+        private Dictionary<string, string> testDic;
+
+        public ThriftServiceImpl()
+        {
+            testDic = new Dictionary<string, string>();
+        }
+
         public void Connect(Dictionary<string, string> machine)
         {
-            throw new System.NotImplementedException();
+            testDic = machine;
+
         }
 
         public Dictionary<string, TestClass> GetMap()
         {
-            throw new System.NotImplementedException();
+            var valuePairs = new Dictionary<string, TestClass>();
+
+            if (testDic.Count > 0)
+            {
+                foreach (var n in testDic)
+                {
+                    valuePairs.Add(n.Key, new TestClass() { Name = n.Value });
+                }
+            }
+            return valuePairs;
         }
 
         public Dictionary<string, int> GetValue()
         {
-            throw new System.NotImplementedException();
+            var valuePairs = new Dictionary<string, int>();
+
+            if (testDic.Count > 0)
+            {
+                foreach (var n in testDic)
+                {
+                    valuePairs.Add(n.Key, DateTime.Now.Second);
+                }
+            }
+            return valuePairs;
         }
     }
 }
