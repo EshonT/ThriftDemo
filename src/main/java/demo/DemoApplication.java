@@ -48,8 +48,8 @@ public class DemoApplication {
             long t2 = System.currentTimeMillis();
 
             Map<String, String> machine = new HashMap<String, String>() {{
-                put("416", "192.168.56.1.1.1");
-                put("511/611", "192.168.56.1.1.1");
+                put("key1", "value1");
+                put("key2", "value2");
             }};
 
             client.Connect(machine);
