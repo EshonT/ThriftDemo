@@ -1,2 +1,0 @@
-# ThriftTransfer
-Demo
